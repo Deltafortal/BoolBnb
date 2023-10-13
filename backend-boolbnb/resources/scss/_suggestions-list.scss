@@ -1,0 +1,34 @@
+/* -----------------------------------------
+* SUGGESTIONS LIST
+-------------------------------------------*/
+@use './utils/vars' as *;
+
+.suggestions-list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+
+    background-color: #fff;
+    border: 1px solid $light-grey;
+    border-radius: 0.5rem;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s, visibility 0.2s;
+
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    li {
+        padding: 0.5rem;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: $light-grey;
+        }
+    }
+}

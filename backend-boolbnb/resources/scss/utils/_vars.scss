@@ -1,0 +1,81 @@
+// Colors
+$brand-color: #ff385c; //radical-red
+$light-grey: #dddddd;
+$bronze:#cd7f32;
+$silver:#8a9597;
+$gold:#daa520;
+
+// Max height main
+$main-h: calc(100vh - 121px);
+
+// Google font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+// Font 
+$roboto: 'Roboto', sans-serif;
+
+// Mixin
+@mixin flex($justify-content: center, $align-items: center, $direction: row, $wrap: unset, $gap: 0){
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    gap: $gap;
+}
+
+@mixin font($weight: 400, $size: 14px, $family: $roboto, $color:black, $spacing:normal){
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+    letter-spacing: $spacing;
+}
+
+@mixin circle($size){
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+}
+
+@mixin square($size, $radius:0){
+    border-radius: $radius;
+    width: $size;
+    height: $size;
+}
+
+@mixin max-size($max: false, $width: 100%, $height: 100%, $max-width: 100%, $max-height: 100%){
+    @if $max{
+        max-width: $max-width;
+        max-height: $max-height;
+    }@else{
+        width: $width;
+        height: $height;
+    }
+}
+
+//_________________________ Text Underline
+@mixin text_underscore($color, $height, $duration: .5s){
+    display: inline;
+    background-image: linear-gradient($color, $color);
+    background-size: 0 $height;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size $duration linear;
+    
+    &:hover {
+        background-size: 100% $height;
+    }
+}
+
+@mixin text_underscore_reverse($color, $height, $duration: .5s){
+    display: inline;
+    background-image: linear-gradient($color, $color);
+    background-size: 100% $height;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size $duration linear;
+    
+    &:hover {
+        background-size: 0 $height;
+    }
+}

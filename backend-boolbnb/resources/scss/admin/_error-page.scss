@@ -1,0 +1,27 @@
+/* -----------------------------------------
+* ERROR PAGE
+-------------------------------------------*/
+
+#error {
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 350px;
+
+        opacity: 0.3;
+        z-index: -1;
+    }
+
+}
+
+// MEDIA SM
+@media screen and (min-width: 576px) {
+    #error {
+        img {
+            position: static;
+        }
+    }
+}

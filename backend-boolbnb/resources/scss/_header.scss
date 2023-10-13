@@ -1,0 +1,73 @@
+@use './utils/vars.scss' as *;
+
+//__________________ HEADER
+header {
+    border-bottom: 1px solid $light-grey;
+    background-color: white;
+    
+    .row{
+        @include flex($wrap: nowrap);
+        height: 80px;
+    }
+    
+    div[class*="col"] {
+        padding: 0;
+        height: 48px
+    }
+}
+
+.logo {
+    @include flex;
+
+    img {
+        width: 35px;
+        margin-right: 5px;
+        filter: brightness(0) saturate(100%) invert(36%) sepia(43%) saturate(4027%) hue-rotate(328deg) brightness(99%) contrast(105%);
+    }
+
+    h1 {
+        @include font(700, 25px, $color: $brand-color, $spacing: -1px);
+    }
+}
+
+.login-menu{
+    @include flex;
+}
+
+.separator {
+    border-right: 1px solid $light-grey;
+    height: 24px;
+}
+
+.user {
+    @include circle(40px);
+    @include flex;
+    color: white;
+    background-color: black;
+}
+
+.dropdown-toggle:after{
+    display: none;
+}
+
+ul.dropdown-menu.show{
+    @include font();
+}
+
+ @media (min-width: 768px) {
+    .login-menu{
+        padding: 0 6px 0 10px;
+        border: 1px solid $light-grey;
+        border-radius: 40px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
+    
+        &:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+        }
+    }
+
+    .user{
+        @include circle(30px);
+    }
+  }

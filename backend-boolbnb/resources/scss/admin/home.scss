@@ -1,0 +1,77 @@
+@use '../utils/vars.scss' as *;
+
+//__________________ ADMIN HOME
+#admin-home{
+    .card{
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 6px 20px rgba($color: #000000, $alpha: 0.2);
+        border: transparent;
+        
+        &:first-of-type{
+            @include flex($direction:column);
+            gap: 20px;
+        }
+
+        &:last-of-type{
+            @include flex(space-between);
+        }
+    }
+
+    ul{
+        margin: 15px 0;
+        line-height: 70px;
+    }
+
+    span{
+        display: inline-block;
+        width: 150px;
+        font-weight: 500;
+    }
+
+    li{
+      border-bottom: 1px solid $light-grey;  
+    }
+
+    div[class*="col"] {
+        @include flex($direction:column);
+        gap: 15px;
+        padding: 0;
+    }
+
+    .col-12{
+        margin-bottom: 20px
+    }
+}
+
+.profile-img{
+    @include circle(100px);
+    @include flex;
+    background-color: black;
+    color: white;
+    font-size: 50px;
+}
+
+.button-primary,
+.logout{
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 15px;
+    transition: all 0.4s;
+}
+
+.button-primary{
+    background-color: $brand-color;
+    &:hover{
+        background-color: #d80566;
+    }
+}
+
+.logout{
+    background-color: red;
+    &:hover{
+        background-color:rgb(214, 0, 0);
+    }
+}

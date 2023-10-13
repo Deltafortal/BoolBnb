@@ -1,0 +1,329 @@
+@use '../utils/vars.scss' as *;
+
+//__________________ SHOW
+#admin-show{
+    header{
+        @include flex(space-between, center);
+        padding: 24px 0;
+        border: 0;
+    }
+
+    // Header dropdown
+    .dropdown-menu{
+        padding: 10px 16px;
+        text-wrap: nowrap;
+
+        li:hover{
+            .secondary{
+                background-color: #6c757d;
+                color: white;
+            }
+            .success{
+                background-color: #198754;
+                color: white;
+            }
+            .warning{
+                background-color: #ffc107;
+            }
+            .danger{
+                background-color: #dc3545;
+                color: white;
+            }
+        }
+    }
+
+    .admin-action{
+        @include flex(start, center, $gap:5px);
+        padding: 5px;
+        border-radius: 10px;
+        transition: all 0.2s;
+    }
+
+    hr{
+        margin: 10px 0;
+    }
+
+    // Modal map
+    .modal-dialog{
+        max-width: calc(100vw - 40px);
+        height: calc(100vh - 60px);
+        margin: 30px auto;
+        .modal-content{
+            height: 100%
+        }
+    }
+
+    .modal-body{
+        @include flex($gap:15px);
+
+        .description{
+            @include flex(flex-start, center, column, $gap: 8px);
+
+            *{
+                font-size: calc(1rem + 0.3vw);
+            }
+
+            hr{
+                width: 30%;
+            }
+
+            h6{
+                font-weight: 300;
+                color: #717171;
+                text-transform: uppercase;
+            }
+        }
+
+        .map{
+            flex: 1 0 55%;
+            padding: calc(50px - 5vw) 0;
+            width: 100%;
+            
+            #map{
+                @include max-size;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+// Apartment image
+.slider {
+    display: flex;
+}
+
+.slider div:empty {
+    background-color: $light-grey;
+    flex-grow: 1;
+    border-radius: 20px;
+}
+
+// If there is
+.image-container {
+    @include square(calc(100vw - 24px), 20px);
+    @include max-size($max: true, $max-width: 100%, $max-height: 360px);
+    overflow: hidden;
+    img {
+        @include max-size;
+        object-fit: cover;
+    }
+}
+
+// If there in not image
+.no-image {
+    border: 1px solid $light-grey;
+    border-radius: 15px;
+    padding: 15px;
+    @include flex($direction: column, $gap: 20px);
+    .icon {
+        @include flex;
+        width: 30%;
+        img {
+            width: 100%;
+            filter: invert(44%) sepia(52%) saturate(6771%) hue-rotate(329deg) brightness(101%) contrast(101%);
+        }
+    }
+}
+
+.short-actions{
+    font-weight: 500;
+    font-size: 16px;
+
+    a {
+        @include text_underscore_reverse($brand-color, 5px, 0.2s)
+      }
+}
+
+// Services
+.service-badge{
+    @include flex($gap:5px);
+    background-color: rgb(33, 33, 33);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    height: 100%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: black;
+    }
+}
+
+.service-image{
+    @include square(20px);
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: invert(100%);
+    }
+}
+
+#apartments-details{
+    .card{
+        @include flex(center, stretch, $gap: 20px);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba($color: #000000, $alpha: 0.2);
+        border: transparent;
+        margin-bottom: 20px;
+        cursor: pointer;
+        
+        &:hover h4{
+            color: $brand-color;
+            background-size: 100% 3px;
+        }   
+
+        > div:not(:first-child){
+            @include flex;
+            padding: 15px;
+            border-radius: 20px;
+            flex-grow: 1;
+            font-size: 17px;
+            color: black;
+            // color: #717171;
+            font-weight: 300;
+            background-color: $light-grey;
+        }
+
+    }
+
+    h4{
+        @include text_underscore($brand-color, 3px, 0.3s);
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .address{
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+// Messages
+#messages{
+    @include flex(center, stretch, column, $gap: 10px);
+    height: $main-h;
+    // border: 1px solid $light-grey;
+    box-shadow: 0 6px 20px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    >h2::after{
+        content: '';
+        display: block;
+        width: 50%;
+        border-top: 1px solid grey;
+        margin: 5px auto;
+    }
+
+    >div{
+        @include flex;
+        flex-grow: 1;
+        width: 100%;
+    }
+}
+.message-list {
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(33, 33, 33);
+    border: 2px solid  rgb(33, 33, 33);
+    margin: 20px 0;
+    width: 100%;
+    height: 450px;
+    overflow-y: scroll;
+    .accordion-item{
+        border: 1px solid $light-grey!important;
+        margin-bottom: 10px;
+    }
+
+    .accordion-header{
+        position: relative;
+        padding-bottom: 3px;
+        .text-gradient{
+            position: absolute;
+            left: 20px;
+            bottom: 0;
+        }
+    }
+ 
+}
+
+.message-empty{
+    @include square(200px);
+    margin: 20px auto;
+    position: relative;
+    img{
+        @include max-size;
+        filter: invert(28%) sepia(51%) saturate(2510%) hue-rotate(324deg) brightness(114%) contrast(101%);
+    }
+    .logo{
+        @include square(80px);
+        filter: brightness(0) saturate(100%) invert(28%) sepia(51%) saturate(2510%) hue-rotate(324deg) brightness(114%) contrast(101%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+    }
+
+    +div{
+        @include flex($direction:column, $gap:20px);
+        color: white;
+        text-align: center;
+        font-size: 18px;
+    }
+}
+
+.accordion-button:not(.collapsed){
+    color: black;
+    background-color: #d4d4d4;
+}
+.accordion-button:focus{
+    border: 0;
+    box-shadow: none;
+}
+// Media query
+@media (min-width: 768px) {
+    .image-container {
+        @include max-size($max: true, $max-width: 696px, $max-height: 400px);
+    }
+
+    .no-image {
+        margin: 0 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .slider {
+        gap: 20px;
+    }
+
+    .no-image {
+        margin: 0;
+    }
+
+    #admin-show .modal-body{
+        @include flex($gap:15px);
+
+        .description{
+            @include flex(flex-start, center, column, $gap: 8px);
+            margin-top: 20px;
+            height: 100%;
+
+            h6{
+                font-size: 20px;
+            }
+        }
+
+        .map{
+            flex: 0 0 70%;
+            height: calc(100% - 20px);
+        }
+
+        
+    }
+}

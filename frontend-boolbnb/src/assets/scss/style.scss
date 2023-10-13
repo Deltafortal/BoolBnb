@@ -1,0 +1,118 @@
+// Bootstrap
+@use 'bootstrap/scss/bootstrap.scss';
+// Variables
+@use './vars' as *;
+
+//__________________ General rules
+body {
+    display: block;
+    font-family: $roboto;
+    font-size: 14px;
+}
+
+main{
+    height: calc(100vh - 121px);
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+// Buttons
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 13px 23px;
+}
+
+.button-light {
+    @include flex;
+    background-color: transparent;
+    font-weight: 500;
+    height: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: #f7f7f7;
+    }
+}
+
+.circle-button {
+    @include circle(40px);
+    @include flex;
+    flex: 0 0 40px;
+    margin-left: 5px;
+    border: 1px solid $light-grey;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+    a {
+        padding: 10px 15px;
+    }
+
+    button{
+        padding: 10px 15px;
+    }
+
+    &:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    }
+}
+
+.button-info {
+    @include circle(15px);
+    @include flex;
+    border: 2px solid black;
+}
+
+//___
+hr {
+    margin: 0;
+}
+
+.card-img:hover{
+    img{
+        transform: scale(1.05);
+    }
+}
+
+// ________Scrollbar
+::-webkit-scrollbar {
+    width: 2px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5c2;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+

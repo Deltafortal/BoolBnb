@@ -1,0 +1,142 @@
+// Bootstrap
+@use '~bootstrap/scss/bootstrap';
+
+// Variables
+@use './utils/vars' as *;
+
+// Includes
+@use './header';
+@use './footer';
+@use './navbar';
+@use './form';
+
+// Components
+@use'./suggestions-list';
+
+// Admin Pages
+@use 'admin/home.scss';
+@use 'admin/error-page';
+@use 'admin/show';
+@use 'admin/create';
+@use 'admin/edit';
+@use 'admin/trash';
+@use 'admin/promote';
+@use 'admin/apartments-list';
+@use 'admin/statistics';
+
+
+//__________________ General rules
+body {
+    display: block;
+    font-family: $roboto;
+    font-size: 14px;
+}
+
+main {
+    height: $main-h;
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+//________Buttons
+
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+
+.button-light {
+    @include flex;
+    background-color: transparent;
+    font-weight: 500;
+    height: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: #f7f7f7;
+    }
+}
+
+.button-dark {
+    @include flex($gap:5px);
+    background-color: rgb(33, 33, 33);
+    color: white;
+    font-weight: 500;
+    height: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: black;
+    }
+}
+
+.circle-button {
+    @include circle(40px);
+    @include flex;
+    flex: 0 0 40px;
+    margin-left: 5px;
+    border: 1px solid $light-grey;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+    &:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    }
+
+    a {
+        padding: 10px 14px;
+    }
+}
+
+// ________Image Preview (index table)
+.image-preview {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+// ________Scrollbar
+::-webkit-scrollbar {
+    width: 2px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5c2;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+

@@ -1,0 +1,14 @@
+@use './utils/vars.scss' as *;
+
+//__________________ FOOTER
+footer{
+    height: 40px;
+    border-top: 1px solid $light-grey;
+    .container{
+        height: 100%;
+    }
+    ul{
+        @include flex;
+        gap: 15px;
+    }
+}

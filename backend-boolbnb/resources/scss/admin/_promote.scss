@@ -1,0 +1,288 @@
+@use '../utils/vars.scss' as *;
+
+//__________________ PROMOTION PAGE
+#promotion-page{
+    overflow:hidden;
+    height: calc(100vh - 121px);
+
+    header{
+        @include flex;
+        padding: 12px 0;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .circle-button{
+        background-color: white;
+        color: black;
+    }
+}
+
+#premium-page{
+    overflow:hidden;
+    height: calc(100vh - 121px);
+
+    header{
+        @include flex;
+        padding-bottom: 12px;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .circle-button{
+        background-color: white;
+        color: black;
+    }
+
+    .upgrade{
+        @include circle(30px);
+        display: inline-block;
+        background-color: black;
+        color: white;
+        margin: 0 10px;
+        border: 1px solid white;
+        font-size: 20px!important;
+    }
+
+    .jumbotron{
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 50%, rgba(118,67,67,1) 83%, rgba(190,93,93,1) 100%);
+        color: white;
+        height: calc(100vh - 121px);
+
+        .circle-button{
+            margin-top: 20px;
+        }
+
+        p{
+            margin: 0;
+            padding: 12px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}
+
+.banner{
+    @include flex(space-between);
+    .title{
+        @include flex($wrap:wrap)
+    }
+    .btn-close{
+        padding: 5px 5px;
+        filter: invert(100%)
+    }
+    .button-primary{
+        font-size: 14px;
+    }
+    border-radius: 10px;
+    border: 0;
+    padding: 20px 10px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 50%, rgba(118,67,67,1) 83%, rgba(190,93,93,1) 100%);
+    color: white;
+
+    .circle-button{
+        margin-top: 20px;
+    }
+
+    p{
+        margin: 0;
+        padding: 15px 0;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+// PAYMENT-FORM
+#payment-form {
+    height: calc(100vh - 120px);
+    font-size: 14px;
+    position: relative;
+
+    header{
+        padding-top: 20px;
+    }
+
+    .circle-button.back{
+        position: absolute;
+        top: 20px;
+        right: 0;
+    }
+}
+
+// Promo card
+div[id*="promo-card"]{
+    padding: 15px;
+    border: 2px solid transparent;
+    position: relative;
+    
+    &.show{
+        border: 2px solid $light-grey;
+        background-color: $light-grey;
+        border-bottom: 0px;
+        border-radius: 15px 15px 0 0;
+        &::after{
+            content: '';
+            width: 100%;
+            height: 15px;
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            // background-color: white;
+        background-color: $light-grey;
+
+            z-index: 1;
+        }
+    }
+}
+
+// Testo card piccola
+#button-1:hover,
+.show #button-1
+{
+    background-color: $bronze; // BRONZO
+    box-shadow: 0 0 10px $bronze;
+    color: black;
+
+}
+.carousel-label-1{
+    background-color: $bronze; // BRONZO
+
+}
+#button-2:hover,
+.show #button-2
+{
+    background-color: $silver; // ARGENTO
+    box-shadow: 0 0 10px $silver;
+    color: black;
+
+}
+.carousel-label-2{
+    background-color: $silver; // ARGENTO
+
+}
+#button-3:hover,
+.show #button-3
+{
+    background-color: $gold; // ORO  
+    box-shadow: 0 0 10px $gold;
+    color: black;
+
+}
+.carousel-label-3{
+    background-color: $gold; // ORO  
+}
+
+div[class*="carousel-label"]{
+    padding-left: 20px;
+    color: black;
+    @include flex(flex-start);
+    border-radius: 15px;
+}
+    
+.promo-text{
+    width: 100%;
+    height: 70px;
+    text-align: start;
+    padding-left: 20px;
+    border-radius: 15px;
+    transition: all 0.3s;
+    background-color: black;
+    color: white;
+
+    &:hover{
+        scale: 1.05;
+    }
+}
+
+.carousel-indicators button{
+    background-color: rgb(95, 95, 95)!important;
+    &.active{
+        background-color: black!important;
+    }
+}
+
+// Card grande dettagli 
+.carousel-control-next,
+.carousel-control-prev{
+    span{
+        border-radius: 5px;
+    }
+    &:hover span{
+        background-color: rgb(127, 127, 127);
+        transition: background-color 0.5s;
+    }
+}
+
+.promo-details{
+    padding: 15px;
+    border: 2px solid $light-grey;
+    background-color: $light-grey;
+    font-size: 14px;
+
+    .circle-button{
+        @include circle(50px);
+        flex: 0 0 50px;
+        font-weight: 600;
+    }
+}
+
+#promo-details-1{
+    border-radius: 0 15px 15px 15px;
+    .circle-button{
+        background-color: $bronze;
+    }
+}
+#promo-details-2{
+    border-radius: 15px;
+    .circle-button{
+        background-color:$silver;
+    }
+}
+#promo-details-3{
+    border-radius: 15px 0 15px 15px;
+    .circle-button{
+        background-color:$gold;
+    }
+}
+
+
+
+// Media query
+@media (min-width: 576px) {
+    #premium-page{
+        .jumbotron p{
+            padding: 20px 0 0 0;
+            font-size: 16px;
+        }
+    }
+
+    #payment-form {
+        font-size: 16px;
+        header{
+            padding-top: 20px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #promotion-page{
+        header{
+            padding: 20px 0 15px 0;
+        }
+
+    }
+    #premium-page{
+        .jumbotron p{
+            font-size: 20px;
+        }
+    }
+
+}
+
+@media (min-width: 992px){
+    .promo-details{
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,10 @@
+@use '../utils/vars.scss' as *;
+
+//__________________ STATISTICS
+#statistics{
+    header{
+        @include flex(space-between, center);
+        padding: 24px 0;
+        border: 0;
+    }
+}

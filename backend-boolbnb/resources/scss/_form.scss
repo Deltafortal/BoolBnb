@@ -1,0 +1,38 @@
+@use './utils/vars' as *;
+
+//__________________ FORM
+
+.form-select{
+    @include font
+}
+
+// Info form message
+.button-info {
+    @include circle(15px);
+    @include flex;
+    border: 2px solid black;
+}
+
+.dropdown-menu {
+    @include font;
+    padding: 8px 5px;
+    text-wrap: nowrap;
+}
+
+.form-check.form-switch{
+    position: relative;
+    padding: 0;
+    label{
+        padding: 16px 56px 16px 32px;
+    }
+    input{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-20%, -55%);
+    }
+}
+
+#api-suggestions{
+    z-index: 1;
+}

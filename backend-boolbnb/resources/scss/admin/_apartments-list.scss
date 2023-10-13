@@ -1,0 +1,114 @@
+@use '../utils/vars.scss' as *;
+
+//__________________ APARTMENT LIST
+#admin-index{
+    padding-bottom: 30px;
+    
+    header{
+        @include flex(space-between, center);
+        padding: 24px 0;
+        border: 0;
+    }
+
+    .button-primary{
+        @include flex($gap:5px);
+        padding: 7px 10px;
+
+    }
+}
+
+.apartments-action-list{
+    .dropdown-menu{
+        padding: 10px 16px;
+        text-wrap: nowrap;
+
+        li:hover{
+            .info{
+                background-color: #0dcaf0;
+                color: white;
+            }
+            .warning{
+                background-color: #ffc107;
+            }
+            .danger{
+                background-color: #dc3545;
+                color: white;
+            }
+        }
+    }
+
+    .admin-action{
+        @include flex(start, center, $gap:5px);
+        padding: 5px;
+        border-radius: 10px;
+        transition: all 0.2s;
+    }
+}
+
+.apartment-title{
+    >div{
+        @include text_underscore($brand-color, 2px, 0.3s);
+    }
+    &:hover{
+        color: $brand-color;
+        background-size: 100% 2px;
+    }
+    a{
+        padding: 20px 0;
+    }
+}
+
+// Button upgrade
+td .circle-button.promote {
+  color: white;
+  background-color: black;
+  
+  &:hover{
+      background-image: linear-gradient(0deg,#ff386a,#000000,#ff386a,#000000);
+      background-size: 100% 300%;
+      animation: upgradeAnimation 1s linear infinite;
+  }
+}
+
+@keyframes upgradeAnimation {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+// Promo activated
+.Bronze{
+    .promotion::after{
+        content: 'Bronze';
+        background-color: $bronze;
+        color: white;
+        border-radius: 15px;
+        padding: 5px;
+        transform: translate(10%, -30%);
+        font-size: 12px;
+    }
+}
+
+.Silver{
+    .promotion::after{
+        content: 'Silver';
+        background-color: $silver;
+        color: white;
+        border-radius: 15px;
+        padding: 5px;
+        transform: translate(10%, -30%);
+        font-size: 12px;
+    }
+}
+
+
+.Gold{
+    .promotion::after{
+        content: 'Gold';
+        background-color: $gold;
+        color: white;
+        border-radius: 15px;
+        padding: 5px;
+        transform: translate(10%, -30%);
+        font-size: 12px;
+    }
+}
